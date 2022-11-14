@@ -1,10 +1,23 @@
 import { observable, action } from "mobx";
 import ITodo from "../Interfaces/ITodo";
 
-const todoStore = observable({
-  todos: [] as Array<ITodo>,
+const todoDefault: ITodo = {
+  id: 1,
+  title: "Do the laundry",
+  completed: false
+}
 
-  openMenu: action((todo: ITodo) => {
+const todoStore = observable({
+  todos: [todoDefault] as Array<ITodo>,
+
+  makeTodo: action((title: string) => {
+    const todo: ITodo = {
+      id: Math.random(),
+      title,
+      completed: false,
+    }
     todoStore.todos.push(todo)
-  })
+  }),
 })
+
+export default todoStore
