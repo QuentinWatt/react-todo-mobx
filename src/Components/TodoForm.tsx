@@ -6,7 +6,7 @@ function TodoForm() {
 
     return (
         <form
-          onSubmit={addTodo}
+          onSubmit={ addTodo }
           className="mt-3 bg-white rounded-lg border p-3"
         >
           <h3 className="font-bold text-2xl mb-3">
