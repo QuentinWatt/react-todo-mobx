@@ -1,7 +1,13 @@
+import { useState } from "react";
+import todoStore from "../Store/TodoStore";
+
 function TodoForm() {
+    const [ todoTitle, setTodoTitle ] = useState('')
+
     const addTodo = (event: any) => {
       event.preventDefault()
-      console.log(event)
+      todoStore.makeTodo(todoTitle)
+      setTodoTitle('')
     }
 
     return (
@@ -16,6 +22,8 @@ function TodoForm() {
           <input
             type="text"
             className="border py-2 px-3 rounded w-full md:w-1/2 md:mr-3"
+            onChange={event => setTodoTitle(event.target.value)}
+            value={todoTitle}
             placeholder="Something to do."
           />
           <button
