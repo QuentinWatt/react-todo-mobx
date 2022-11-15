@@ -1,22 +1,5 @@
 import todoStore from "../Store/TodoStore";
-import ITodo from "../Interfaces/ITodo";
-import { observer } from "mobx-react";
-
-// @ts-ignore
-const TodoListView = observer(({todoStore}) => (
-  <ul>
-    {
-      todoStore.todos.map((todo: ITodo) => (
-        <li
-          key={todo.id}
-          className="border rounded px-3 py-2 bg-gray-50 relative flex"
-        >
-          { todo.title }
-        </li>
-      ))
-    }
-  </ul>
-))
+import TodoListView from "./TodoListView";
 
 const TodoList = () => {
   return (
