@@ -50,7 +50,7 @@ function TodoForm() {
         </div>
         <div>
           <button
-            className="mt-3 md:mt-0 w-full md:w-32 bg-primary-500 hover:bg-primary-600 rounded text-white py-2 px-3"
+            className="button mt-3 md:mt-0 w-full md:w-32"
           >
             Add
           </button>

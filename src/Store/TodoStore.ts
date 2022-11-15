@@ -8,13 +8,22 @@ const todoStore = observable({
     const todo: ITodo = {
       id: Number(todoStore.getNewId),
       title,
-      completed: false,
+      isCompleted: false,
     }
     todoStore.todos.push(todo)
   }),
 
   removeTodo: action((removeTodo: ITodo) => {
     todoStore.todos = todoStore.todos.filter((todo: ITodo) => todo.id !== removeTodo.id)
+  }),
+
+  setCompleted: action((changedTodo: ITodo, isCompleted: boolean) => {
+    todoStore.todos = todoStore.todos.map((todo) => {
+      if(todo.id === changedTodo.id){
+        todo.isCompleted = isCompleted
+      }
+      return todo
+    })
   }),
 
   getNewId: computed ((): number => {
