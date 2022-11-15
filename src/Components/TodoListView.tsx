@@ -28,7 +28,7 @@ const TodoListView = observer(({todoStore}: ITodoStore) => {
               </span>
               <button
                 onClick={() => store.removeTodo(todo)}
-                className="bg-secondary-500 hover:bg-secondary-600 text-white px-3 py-2 rounded"
+                className="button button-secondary"
               >
                 Delete
               </button>
