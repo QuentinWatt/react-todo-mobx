@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-.app-body {
-    min-height: calc(100vh - 10rem);
+@layer components {
+    .app-body {
+        min-height: calc(100vh - 10rem);
+    }
+
+    .todo-item {
+        @apply bg-gray-50 border rounded pl-3 w-full flex items-center justify-between;
+    }
+
+
 }

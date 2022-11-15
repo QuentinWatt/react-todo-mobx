@@ -1,9 +1,14 @@
+import React from "react";
 import {observer} from "mobx-react";
 import ITodoStore from "../Interfaces/ITodoStore";
 import ITodo from "../Interfaces/ITodo";
 import store from "../Store/TodoStore";
 
 const TodoListView = observer(({todoStore}: ITodoStore) => {
+  const setTodoCompleted = (event: React.ChangeEvent<HTMLInputElement>, todo: ITodo) => {
+    store.setCompleted(todo, event.target.checked)
+  }
+
   if(todoStore.todos.length){
     return (
       <ul>
@@ -11,12 +16,13 @@ const TodoListView = observer(({todoStore}: ITodoStore) => {
           todoStore.todos.map((todo: ITodo) => (
             <li
               key={todo.id}
-              className="mt-3 border rounded pl-3 bg-gray-50 w-full flex items-center justify-between"
+              className={ todo.isCompleted ? 'bg-green-100 mt-3 todo-item' : 'mt-3 todo-item'}
             >
               <span>
                 <input
                   type="checkbox"
                   className="inline-block mr-3"
+                  onChange={event => setTodoCompleted(event, todo)}
                 />
                 { todo.title }
               </span>
